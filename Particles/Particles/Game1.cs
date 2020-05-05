@@ -11,7 +11,7 @@ namespace Particles
         SpriteBatch spriteBatch;
 
         BaseSprite middlePx;
-        AcceleratingSprite px;
+        AcceleratingParticle px;
 
         public Game1()
         {
@@ -36,7 +36,7 @@ namespace Particles
             spriteBatch = new SpriteBatch(GraphicsDevice);
             middlePx = new BaseSprite(Content.Load<Texture2D>("Textures/white2By2"), new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), Color.Red, Vector2.One);
 
-            px = new AcceleratingSprite(Content.Load<Texture2D>("Textures/white2By2"), new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), new Vector2(100f, 100f), Vector2.Zero, new Vector2(0.1f, 0.1f));
+            px = new AcceleratingParticle(Content.Load<Texture2D>("Textures/white2By2"), new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), new Vector2(100f, 100f), Vector2.Zero, new Vector2(0.1f, 0.1f));
         }
 
         protected override void UnloadContent()

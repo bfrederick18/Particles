@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace Particles
 {
-    public class AcceleratingSprite : MovingSprite
+    public class AcceleratingParticle : MovingSprite
     {
         protected Vector2 acceleration;
 
-        public AcceleratingSprite(Texture2D texture, Vector2 position, Color tint, Vector2 scale, Vector2 velocity, Vector2 acceleration)
+        public AcceleratingParticle(Texture2D texture, Vector2 position, Color tint, Vector2 scale, Vector2 velocity, Vector2 acceleration)
            : base(texture, position, tint, scale, velocity)
         {
             this.acceleration = acceleration;
         }
 
-        public AcceleratingSprite(Texture2D texture, Vector2 position, Vector2 scale, Vector2 velocity, Vector2 acceleration)
+        public AcceleratingParticle(Texture2D texture, Vector2 position, Vector2 scale, Vector2 velocity, Vector2 acceleration)
            : this(texture, position, Color.White, scale, velocity, acceleration)
         {
 
