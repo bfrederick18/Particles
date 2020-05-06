@@ -41,10 +41,12 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AcceleratingParticle.cs" />
+    <Compile Include="AcceleratingSprite.cs" />
     <Compile Include="BaseSprite.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="MovingSprite.cs" />
+    <Compile Include="Particle.cs" />
+    <Compile Include="ParticleSystem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
