@@ -13,8 +13,8 @@ namespace Particles
     {
         public int lifeSpan;
 
-        public Particle(Texture2D texture, Vector2 position, Color tint, Vector2 scale, Vector2 velocity, Vector2 acceleration, int lifeSpan)
-            : base(texture, position, tint, scale, velocity, acceleration)
+        public Particle(Texture2D texture, Vector2 position, Color tint, Vector2 scale, Vector2 velocity, Vector2 acceleration, float decelerationFactor, int lifeSpan)
+            : base(texture, position, tint, scale, velocity, acceleration, decelerationFactor)
         {
             this.lifeSpan = lifeSpan;
         }

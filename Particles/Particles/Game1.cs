@@ -46,7 +46,7 @@ namespace Particles
 
             for (int i = 0; i < 100; i++)
             {
-                partSys.AddParticle(new Particle(Content.Load<Texture2D>("Textures/white2By2"), new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), Color.Green, new Vector2(2f, 2f), new Vector2(rand.Next(-10, 10), rand.Next(-10, 10)), Vector2.Zero, rand.Next(50, 150)));
+                partSys.AddParticle(new Particle(Content.Load<Texture2D>("Textures/white2By2"), new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), Color.Green, new Vector2(2f, 2f), new Vector2(rand.Next(-10, 10), rand.Next(-10, 10)), Vector2.Zero, 0.98f, rand.Next(50, 150)));
             }
         }
 
