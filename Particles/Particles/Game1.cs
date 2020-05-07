@@ -10,6 +10,7 @@ namespace Particles
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Random rand = new Random();
 
         Texture2D pixel;
         Vector2 centerScreen;
@@ -46,11 +47,11 @@ namespace Particles
             middlePx = new BaseSprite(pixel, centerScreen, Color.Red, Vector2.One);
 
             partSys = new ParticleSystem();
-            partSource = new ParticleSource(centerScreen);
+            partSource = new ParticleSource(centerScreen, 3, 10);
 
             for (int i = 0; i < 300; i++)
             {
-                partSource.Generate(pixel);
+                partSource.Generate(pixel, rand.Next(50, 150));
             }
         }
 

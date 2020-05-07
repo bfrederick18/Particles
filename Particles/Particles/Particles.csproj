@@ -41,13 +41,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AcceleratingSprite.cs" />
-    <Compile Include="BaseSprite.cs" />
+    <Compile Include="SpriteClasses\AcceleratingSprite.cs" />
+    <Compile Include="SpriteClasses\BaseSprite.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="MovingSprite.cs" />
-    <Compile Include="Particle.cs" />
-    <Compile Include="ParticleSource.cs" />
-    <Compile Include="ParticleSystem.cs" />
+    <Compile Include="SpriteClasses\MovingSprite.cs" />
+    <Compile Include="ParticleClasses\Particle.cs" />
+    <Compile Include="ParticleClasses\ParticleSource.cs" />
+    <Compile Include="ParticleClasses\ParticleSystem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,6 +65,7 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

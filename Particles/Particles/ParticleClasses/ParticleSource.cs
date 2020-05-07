@@ -12,23 +12,29 @@ namespace Particles
     {
         Random rand;
 
-        private ParticleSystem partSys;
         public Vector2 sourcePosition;
+        private ParticleSystem partSys;
+        public float minRadius;
+        public float maxRadius;
 
-        public ParticleSource(Vector2 sourcePosition)
+        public ParticleSource(Vector2 sourcePosition, float minRadius, float maxRadius)
         {
             rand = new Random();
+
             this.sourcePosition = sourcePosition;
             partSys = new ParticleSystem();
+            this.minRadius = minRadius;
+            this.maxRadius = maxRadius;
         }
 
-        public void Generate(Texture2D texture)
+        public void Generate(Texture2D texture, int lifeSpan)
         {
             float rotation = (float)(rand.NextDouble() * 2 * Math.PI);
-            float vX = (float)(Math.Cos(rotation) * (rand.NextDouble() * 3));
-            float vY = (float)(Math.Sin(rotation) * (rand.NextDouble() * 3));
+            double velMulti = (rand.NextDouble() * (maxRadius - minRadius)) + minRadius;
+            float vX = (float)(Math.Cos(rotation) * velMulti);
+            float vY = (float)(Math.Sin(rotation) * velMulti);
             //                               texture, position,       tint,        scale,               velocity,            acceleration  decelerationFactor, lifeSpan
-            partSys.AddParticle(new Particle(texture, sourcePosition, Color.Green, new Vector2(2f, 2f), new Vector2(vX, vY), Vector2.Zero, 0.98f,              rand.Next(50, 150)));
+            partSys.AddParticle(new Particle(texture, sourcePosition, Color.Green, new Vector2(2f, 2f), new Vector2(vX, vY), Vector2.Zero, 0.98f,              lifeSpan));
         }
 
         public void Update(GameTime gameTime, Viewport screen)
