@@ -10,12 +10,14 @@ namespace Particles
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Random rand = new Random();
+
+        Texture2D pixel;
+        Vector2 centerScreen;
 
         BaseSprite middlePx;
-        AcceleratingSprite px;
 
         ParticleSystem partSys;
+        ParticleSource partSource;
 
         public Game1()
         {
@@ -38,21 +40,23 @@ namespace Particles
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            middlePx = new BaseSprite(Content.Load<Texture2D>("Textures/white2By2"), new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), Color.Red, Vector2.One);
+            pixel = Content.Load<Texture2D>("Textures/white2By2");
+            centerScreen = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
 
-            px = new AcceleratingSprite(Content.Load<Texture2D>("Textures/white2By2"), new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), new Vector2(100f, 100f), Vector2.Zero, new Vector2(0.1f, 0.1f));
+            middlePx = new BaseSprite(pixel, centerScreen, Color.Red, Vector2.One);
 
             partSys = new ParticleSystem();
+            partSource = new ParticleSource(centerScreen);
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 300; i++)
             {
-                partSys.AddParticle(new Particle(Content.Load<Texture2D>("Textures/white2By2"), new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2), Color.Green, new Vector2(2f, 2f), new Vector2(rand.Next(-10, 10), rand.Next(-10, 10)), Vector2.Zero, 0.98f, rand.Next(50, 150)));
+                partSource.Generate(pixel);
             }
         }
 
         protected override void UnloadContent()
         {
-            Content.Unload();
+            //Content.Unload();
         }
 
         protected override void Update(GameTime gameTime)
@@ -61,9 +65,9 @@ namespace Particles
                 Exit();
 
             middlePx.Update(gameTime, GraphicsDevice.Viewport);
-            px.Update(gameTime, GraphicsDevice.Viewport);
 
             partSys.Update(gameTime, GraphicsDevice.Viewport);
+            partSource.Update(gameTime, GraphicsDevice.Viewport);
 
             base.Update(gameTime);
         }
@@ -73,8 +77,8 @@ namespace Particles
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
 
-            //px.Draw(spriteBatch);
             partSys.Draw(spriteBatch);
+            partSource.Draw(spriteBatch);
 
             middlePx.Draw(spriteBatch);
             spriteBatch.End();

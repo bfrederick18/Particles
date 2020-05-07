@@ -22,6 +22,8 @@ namespace Particles
         public override void Update(GameTime gameTime, Viewport screen)
         {
             lifeSpan--;
+            rotation += (float)(Math.PI / 4096 * lifeSpan);
+            Console.WriteLine(rotation);
             base.Update(gameTime, screen);
         }
     }

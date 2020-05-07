@@ -21,10 +21,10 @@ namespace Particles
         }
 
         public AcceleratingSprite(Texture2D texture, Vector2 position, Color tint, Vector2 scale, Vector2 velocity, Vector2 acceleration, float decelerationFactor)
-            : this(texture, position, new Rectangle(0, 0, texture.Width, texture.Height), tint, 0f, scale, Vector2.One, SpriteEffects.None, 0, velocity, acceleration, decelerationFactor) { }
+            : this(texture, position, new Rectangle(0, 0, texture.Width, texture.Height), tint, 0f, new Vector2(texture.Width / 2, texture.Height / 2), scale, SpriteEffects.None, 0, velocity, acceleration, decelerationFactor) { }
 
         public AcceleratingSprite(Texture2D texture, Vector2 position, Vector2 scale, Vector2 velocity, Vector2 acceleration)
-           : this(texture, position, Color.White, scale, velocity, acceleration, 0) { }
+           : this(texture, position, Color.White, scale, velocity, acceleration, 1f) { }
 
         public override void Update(GameTime gameTime, Viewport screen)
         {
