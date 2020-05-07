@@ -47,7 +47,7 @@ namespace Particles
             middlePx = new BaseSprite(pixel, centerScreen, Color.Red, Vector2.One);
 
             partSys = new ParticleSystem();
-            partSource = new ParticleSource(centerScreen, 3, 10);
+            partSource = new ParticleSource(centerScreen, new Vector2(3, 10));
 
             for (int i = 0; i < 300; i++)
             {
