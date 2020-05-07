@@ -11,7 +11,8 @@ namespace Particles
 {
     public class Particle : AcceleratingSprite
     {
-        public int lifeSpan;
+        public int lifeSpan; //if the lifeSpan is greater than one, it is decaying
+                             //if the lifeSpan is equal to zero, it is permanent
 
         public Particle(Texture2D texture, Vector2 position, Color tint, Vector2 scale, Vector2 velocity, Vector2 acceleration, float decelerationFactor, int lifeSpan)
             : base(texture, position, tint, scale, velocity, acceleration, decelerationFactor)
@@ -21,7 +22,11 @@ namespace Particles
 
         public override void Update(GameTime gameTime, Viewport screen)
         {
-            lifeSpan--;
+            if (lifeSpan == 0)
+                lifeSpan = 0;
+            else
+                lifeSpan--;
+
             rotation += (float)(Math.PI / 4096 * lifeSpan);
             Console.WriteLine(rotation);
             base.Update(gameTime, screen);

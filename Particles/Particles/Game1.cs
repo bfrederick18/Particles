@@ -20,6 +20,8 @@ namespace Particles
         ParticleSystem partSys;
         ParticleSource partSource;
 
+        int[,] rgb;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -43,11 +45,12 @@ namespace Particles
             spriteBatch = new SpriteBatch(GraphicsDevice);
             pixel = Content.Load<Texture2D>("Textures/white2By2");
             centerScreen = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
+            rgb = new int[,] { { 100, 200 }, { 0, 170 }, { 0, 0 } };
 
-            middlePx = new BaseSprite(pixel, centerScreen, Color.Red, Vector2.One);
+            middlePx = new BaseSprite(pixel, centerScreen, Color.Green, Vector2.One);
 
             partSys = new ParticleSystem();
-            partSource = new ParticleSource(centerScreen, new Vector2(3, 10));
+            partSource = new ParticleSource(centerScreen, new Vector2(3, 10), new Vector2(3f, 3f), rgb);
 
             for (int i = 0; i < 300; i++)
             {

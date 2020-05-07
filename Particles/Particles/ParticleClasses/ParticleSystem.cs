@@ -27,7 +27,7 @@ namespace Particles
             for (int i = 0; i < particles.Count; i++)
             {
                 particles[i].Update(gameTime, screen);
-                if (particles[i].lifeSpan <= 0)
+                if (particles[i].lifeSpan == 1)
                 {
                     particles.Remove(particles[i]);
                     i--;
