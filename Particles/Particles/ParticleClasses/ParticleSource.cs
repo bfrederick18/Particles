@@ -17,8 +17,8 @@ namespace Particles
         public Vector2 radii;
         // (minRadius, maxRadius);
         public Vector2 scale;
-        public int[,] rgb;
-        public ParticleSource(Vector2 sourcePosition, Vector2 radii, Vector2 scale, int[,] rgb)
+        public Tuple<Vector2, Vector2, Vector2> rgb;
+        public ParticleSource(Vector2 sourcePosition, Vector2 radii, Vector2 scale, Tuple<Vector2, Vector2, Vector2> rgb)
         {
             rand = new Random();
 
@@ -35,10 +35,10 @@ namespace Particles
             double velMulti = (rand.NextDouble() * (radii.Y - radii.X)) + radii.X;
             float vX = (float)(Math.Cos(rotation) * velMulti);
             float vY = (float)(Math.Sin(rotation) * velMulti);
-            Color partColor = new Color(rand.Next(rgb[0, 0], rgb[0, 1]), rand.Next(rgb[1, 0], rgb[1, 1]), rand.Next(rgb[2, 0], rgb[2, 1]));
+            Color partColor = new Color(rand.Next((int)rgb.Item1.X, (int)rgb.Item1.Y), rand.Next((int)rgb.Item2.X, (int)rgb.Item2.Y), rand.Next((int)rgb.Item3.X, (int)rgb.Item3.Y));
 
-            //                               texture, position,       tint,      scale, velocity,            acceleration  decelerationFactor, lifeSpan
-            partSys.AddParticle(new Particle(texture, sourcePosition, partColor, scale, new Vector2(vX, vY), Vector2.Zero, 0.98f,              lifeSpan));
+            //                               texture, position,       tint,      scale, velocity,            decelerationFactor, lifeSpan
+            partSys.AddParticle(new Particle(texture, sourcePosition, partColor, scale, new Vector2(vX, vY), 0.98f,              lifeSpan));
         }
 
         public void Update(GameTime gameTime, Viewport screen)

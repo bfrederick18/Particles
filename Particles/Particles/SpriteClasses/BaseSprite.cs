@@ -20,6 +20,8 @@ namespace Particles
         protected Vector2 origin;
         protected SpriteEffects effects;
 
+        public Random rand;
+
         public BaseSprite(Texture2D texture, Vector2 position)
             : this(texture, position, new Rectangle(0, 0, texture.Width, texture.Height), Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0)
         {
@@ -44,12 +46,11 @@ namespace Particles
             this.scale = scale;
             this.effects = effects;
             this.layerDepth = layerDepth;
+
+            rand = new Random();
         }
 
-        public virtual void Update(GameTime gameTime, Viewport screen)
-        {
-
-        }
+        public virtual void Update(GameTime gameTime, Viewport screen) { }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {

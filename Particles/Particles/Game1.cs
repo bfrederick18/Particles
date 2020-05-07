@@ -20,7 +20,7 @@ namespace Particles
         ParticleSystem partSys;
         ParticleSource partSource;
 
-        int[,] rgb;
+        Tuple<Vector2, Vector2, Vector2> rgb;
 
         public Game1()
         {
@@ -45,7 +45,7 @@ namespace Particles
             spriteBatch = new SpriteBatch(GraphicsDevice);
             pixel = Content.Load<Texture2D>("Textures/white2By2");
             centerScreen = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
-            rgb = new int[,] { { 100, 200 }, { 0, 170 }, { 0, 0 } };
+            rgb = new Tuple<Vector2, Vector2, Vector2>(new Vector2(100, 200), new Vector2(0, 120), new Vector2(0, 0));
 
             middlePx = new BaseSprite(pixel, centerScreen, Color.Green, Vector2.One);
 
@@ -53,9 +53,7 @@ namespace Particles
             partSource = new ParticleSource(centerScreen, new Vector2(3, 10), new Vector2(3f, 3f), rgb);
 
             for (int i = 0; i < 300; i++)
-            {
                 partSource.Generate(pixel, rand.Next(50, 150));
-            }
         }
 
         protected override void UnloadContent()

@@ -20,6 +20,9 @@ namespace Particles
             this.lifeSpan = lifeSpan;
         }
 
+        public Particle(Texture2D texture, Vector2 position, Color tint, Vector2 scale, Vector2 velocity, float decelerationFactor, int lifeSpan)
+            : this(texture, position, tint, scale, velocity, Vector2.Zero, decelerationFactor, lifeSpan) { }
+
         public override void Update(GameTime gameTime, Viewport screen)
         {
             if (lifeSpan == 0)
