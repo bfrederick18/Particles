@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Brandon/Documents/Github/Particles/Particles/Particles/Content/Textures/white2By2.png</SourceFile>
-  <SourceTime>2020-05-04T20:39:40.1088143-07:00</SourceTime>
-  <DestFile>C:/Users/Brandon/Documents/Github/Particles/Particles/Particles/Content/bin/Windows/Textures/white2By2.xnb</DestFile>
-  <DestTime>2020-05-07T18:23:06.5235329-07:00</DestTime>
+  <SourceFile>C:/Users/Brandon/Documents/Github/Particles/Particles/Particles/Content/Textures/torch20by46.png</SourceFile>
+  <SourceTime>2020-05-07T18:13:18.6331716-07:00</SourceTime>
+  <DestFile>C:/Users/Brandon/Documents/Github/Particles/Particles/Particles/Content/bin/Windows/Textures/torch20by46.xnb</DestFile>
+  <DestTime>2020-05-07T18:23:06.4835745-07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T08:35:54-08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

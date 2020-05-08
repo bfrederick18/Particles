@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Particles.ParticleObjects;
 using System;
 using System.Net;
 
@@ -13,12 +14,13 @@ namespace Particles
         Random rand = new Random();
 
         Texture2D pixel;
+        Texture2D torchTexture;
         Vector2 centerScreen;
 
         BaseSprite middlePx;
 
-        ParticleSystem partSys;
         ParticleSource partSource;
+        Torch torch;
 
         Tuple<Vector2, Vector2, Vector2> rgb;
 
@@ -44,16 +46,14 @@ namespace Particles
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             pixel = Content.Load<Texture2D>("Textures/white2By2");
+            torchTexture = Content.Load<Texture2D>("Textures/torch22by48");
             centerScreen = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
             rgb = new Tuple<Vector2, Vector2, Vector2>(new Vector2(100, 200), new Vector2(0, 120), new Vector2(0, 0));
 
             middlePx = new BaseSprite(pixel, centerScreen, Color.Green, Vector2.One);
 
-            partSys = new ParticleSystem();
-            partSource = new ParticleSource(centerScreen, new Vector2(3, 10), new Vector2(3f, 3f), rgb);
-
-            for (int i = 0; i < 300; i++)
-                partSource.Generate(pixel, rand.Next(50, 150));
+            partSource = new ParticleSource(centerScreen - new Vector2(0, 3 * 11), new Vector2(1, 3), new Vector2(3f, 3f), rgb);
+            torch = new Torch(torchTexture, centerScreen, new Vector2(3f), Vector2.Zero, Vector2.Zero, 1f, pixel, partSource);
         }
 
         protected override void UnloadContent()
@@ -68,8 +68,7 @@ namespace Particles
 
             middlePx.Update(gameTime, GraphicsDevice.Viewport);
 
-            partSys.Update(gameTime, GraphicsDevice.Viewport);
-            partSource.Update(gameTime, GraphicsDevice.Viewport);
+            torch.Update(gameTime, GraphicsDevice.Viewport);
 
             base.Update(gameTime);
         }
@@ -79,8 +78,7 @@ namespace Particles
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
 
-            partSys.Draw(spriteBatch);
-            partSource.Draw(spriteBatch);
+            torch.Draw(spriteBatch);
 
             middlePx.Draw(spriteBatch);
             spriteBatch.End();

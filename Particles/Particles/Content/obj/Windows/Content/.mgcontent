@@ -4,10 +4,14 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Brandon/Documents/Github/Particles/Particles/Particles/Content/Textures/torch20by46.png</File>
+    <File>C:/Users/Brandon/Documents/Github/Particles/Particles/Particles/Content/Textures/torch22by48.png</File>
     <File>C:/Users/Brandon/Documents/Github/Particles/Particles/Particles/Content/Textures/white2By2.png</File>
     <File>C:/Users/Brandon/Documents/Github/Particles/Particles/Particles/Content/Textures/whitePixel.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

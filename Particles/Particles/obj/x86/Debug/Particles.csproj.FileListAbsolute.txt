@@ -23,3 +23,5 @@ C:\Users\Brandon\Documents\Github\Particles\Particles\Particles\obj\x86\Debug\Pa
 C:\Users\Brandon\Documents\Github\Particles\Particles\Particles\obj\x86\Debug\Particles.csproj.CopyComplete
 C:\Users\Brandon\Documents\Github\Particles\Particles\Particles\obj\x86\Debug\Particles.exe
 C:\Users\Brandon\Documents\Github\Particles\Particles\Particles\obj\x86\Debug\Particles.pdb
+C:\Users\Brandon\Documents\Github\Particles\Particles\Particles\bin\Windows\x86\Debug\Content\Textures\torch20by46.xnb
+C:\Users\Brandon\Documents\Github\Particles\Particles\Particles\bin\Windows\x86\Debug\Content\Textures\torch22by48.xnb
