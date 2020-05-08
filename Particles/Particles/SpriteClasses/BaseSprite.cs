@@ -20,10 +20,12 @@ namespace Particles
         protected Vector2 origin;
         protected SpriteEffects effects;
 
+        protected float transparency;
+
         public Random rand;
 
         public BaseSprite(Texture2D texture, Vector2 position)
-            : this(texture, position, new Rectangle(0, 0, texture.Width, texture.Height), Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0)
+            : this(texture, position, new Rectangle(0, 0, texture.Width, texture.Height), Color.White, 0, Vector2.Zero, Vector2.One, SpriteEffects.None, 0, 1.0f)
         {
             origin = new Vector2(sourceRectangle.Width / 2, sourceRectangle.Height / 2);
         }
@@ -35,7 +37,7 @@ namespace Particles
             this.scale = scale;
         }
 
-        public BaseSprite(Texture2D texture, Vector2 position, Rectangle sourceRectangle, Color tint, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layerDepth)
+        public BaseSprite(Texture2D texture, Vector2 position, Rectangle sourceRectangle, Color tint, float rotation, Vector2 origin, Vector2 scale, SpriteEffects effects, float layerDepth, float transparency)
         {
             this.texture = texture;
             this.position = position;
@@ -46,6 +48,7 @@ namespace Particles
             this.scale = scale;
             this.effects = effects;
             this.layerDepth = layerDepth;
+            this.transparency = transparency;
 
             rand = new Random();
         }
@@ -54,7 +57,7 @@ namespace Particles
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, sourceRectangle, tint, rotation, origin, scale, effects, layerDepth);
+            spriteBatch.Draw(texture, position, sourceRectangle, tint * transparency, rotation, origin, scale, effects, layerDepth);
         }
     }
 }

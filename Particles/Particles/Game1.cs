@@ -52,8 +52,7 @@ namespace Particles
 
             middlePx = new BaseSprite(pixel, centerScreen, Color.Green, Vector2.One);
 
-            partSource = new ParticleSource(centerScreen - new Vector2(0, 3 * 11), new Vector2(1, 3), new Vector2(3f, 3f), rgb);
-            torch = new Torch(torchTexture, centerScreen, new Vector2(3f), Vector2.Zero, Vector2.Zero, 1f, pixel, partSource);
+            torch = new Torch(torchTexture, centerScreen, new Vector2(3f), 1.0f, Vector2.Zero, Vector2.Zero, 1f, pixel);
         }
 
         protected override void UnloadContent()
@@ -76,7 +75,7 @@ namespace Particles
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
 
             torch.Draw(spriteBatch);
 

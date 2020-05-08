@@ -14,14 +14,17 @@ namespace Particles
         public int lifeSpan; //if the lifeSpan is greater than one, it is decaying
                              //if the lifeSpan is equal to zero, it is permanent
 
-        public Particle(Texture2D texture, Vector2 position, Color tint, Vector2 scale, Vector2 velocity, Vector2 acceleration, float decelerationFactor, int lifeSpan)
-            : base(texture, position, tint, scale, velocity, acceleration, decelerationFactor)
+        public Particle(Texture2D texture, Vector2 position, Color tint, Vector2 scale, float transparency, Vector2 velocity, Vector2 acceleration, float decelerationFactor, int lifeSpan)
+            : base(texture, position, tint, scale, transparency, velocity, acceleration, decelerationFactor)
         {
             this.lifeSpan = lifeSpan;
         }
 
+        public Particle(Texture2D texture, Vector2 position, Color tint, Vector2 scale, float transparency, Vector2 velocity, float decelerationFactor, int lifeSpan)
+            : this(texture, position, tint, scale, transparency, velocity, Vector2.Zero, decelerationFactor, lifeSpan) { }
+
         public Particle(Texture2D texture, Vector2 position, Color tint, Vector2 scale, Vector2 velocity, float decelerationFactor, int lifeSpan)
-            : this(texture, position, tint, scale, velocity, Vector2.Zero, decelerationFactor, lifeSpan) { }
+            : this(texture, position, tint, scale, 1.0f, velocity, Vector2.Zero, decelerationFactor, lifeSpan) { }
 
         public override void Update(GameTime gameTime, Viewport screen)
         {
